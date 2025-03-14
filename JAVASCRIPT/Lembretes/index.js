@@ -32,9 +32,6 @@ app.post('/eventos',(req,res)=>{
 })
 
 
-
-
-
 app.listen(4000, () => {
 console.log('Lembretes. Porta 4000');
 });

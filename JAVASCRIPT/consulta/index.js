@@ -1,9 +1,7 @@
 const express = require('express')
 const app = express();
-baseConsulta = {};
-
-
 app.use(express.json())
+baseConsulta = {};
 
 const funcoes = {
     LembreteCriado: (lembrete) => {
@@ -15,11 +13,10 @@ const funcoes = {
         observacoes.push(observacao);
         baseConsulta[observacao.lembreteId]["observacoes"] = observacoes;
     },
-     ObservacaoAtualizada: (observacao) => {
+    ObservacaoAtualizada: (observacao) => {
         const observacoes =
             baseConsulta[observacao.lembreteId]["observacoes"];
-        const indice = observacoes.findIndex((o) => o.id ===
-            observacao.id);
+        const indice = observacoes.findIndex((o) => o.id === observacao.id);
         observacoes[indice] = observacao;
     },
 

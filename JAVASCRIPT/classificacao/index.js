@@ -1,4 +1,5 @@
 const express = require("express");
+const axios = require("axios")
 const app = express();
 
 
@@ -7,7 +8,7 @@ const palavraChave = "importante"
 const funcoes = {
     Observacaocriada: (observacao) => {
         observacao.status =
-        observacao.texto.includes(palavraChave) ? "importante" : "comum"
+        observacao.texto.includes(palavraChave)?"importante":"comum"
         axios.post("http://localhost:10000/eventos", {
             tipo: "ObservacaoClassificada",
             dados: observacao,
