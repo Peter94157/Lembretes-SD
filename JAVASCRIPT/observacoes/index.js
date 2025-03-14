@@ -3,7 +3,7 @@ const bodyParser = require('body-parser')
 const axios = require('axios');
 const app = express()
 app.use(bodyParser.json())
-observacoesPorLembreteId = {}
+const observacoesPorLembreteId = {}
 const { v4: uuidv4 } = require('uuid')
 
 
@@ -34,7 +34,7 @@ app.put('/lembretes/:id/observacoes', async (req, res) => {
     //req.params dá acesso à lista de parâmetros da URL
     const observacoesDoLembrete =
         observacoesPorLembreteId[req.params.id] || [];
-    observacoesDoLembrete.push({ id: idObs, texto, status: 'Aguardando' });
+    observacoesDoLembrete.push({ id: idObs, texto, status: 'aguardando' });
     observacoesPorLembreteId[req.params.id] = observacoesDoLembrete;
     await axios.post('http://localhost:10000/eventos', {
         tipo: "ObservacaoCriada",
@@ -42,7 +42,7 @@ app.put('/lembretes/:id/observacoes', async (req, res) => {
             id: idObs,
             texto,
             lembreteId: req.params.id,
-            status: 'Aguardando'
+            status: 'aguardando'
         },
     });
 
@@ -57,7 +57,6 @@ app.put('/lembretes/:id/observacoes', async (req, res) => {
 
 
 app.get('/lembretes/:id/observacoes', (req, res) => {
-
     res.send(observacoesPorLembreteId[req.params.id] || [])
 })
 

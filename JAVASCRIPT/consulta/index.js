@@ -1,7 +1,7 @@
-const express = require('express')
+const express = require("express")
 const app = express();
+const baseConsulta = {};
 app.use(express.json())
-baseConsulta = {};
 
 const funcoes = {
     LembreteCriado: (lembrete) => {

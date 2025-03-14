@@ -4,17 +4,19 @@ const app = express();
 
 
 app.use(express.json())
-const palavraChave = "importante"
+const palavraChave = "importante";
 const funcoes = {
-    Observacaocriada: (observacao) => {
+    ObservacaoCriada: (observacao) => {
         observacao.status =
-        observacao.texto.includes(palavraChave)?"importante":"comum"
+            observacao.texto.includes(palavraChave)
+                ? "importante"
+                : "comum";
         axios.post("http://localhost:10000/eventos", {
             tipo: "ObservacaoClassificada",
             dados: observacao,
-        })
+        });
     },
-}
+};
 
 app.post('/eventos', (req, res) => {
     try {
