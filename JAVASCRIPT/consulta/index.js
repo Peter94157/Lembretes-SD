@@ -1,6 +1,6 @@
 const express = require("express")
 const app = express();
-const baseConsulta = {};
+baseConsulta = {};
 app.use(express.json())
 
 const funcoes = {

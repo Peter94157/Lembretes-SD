@@ -1,10 +1,10 @@
-const express = require ('express');
-const app = express();
-const axios = require('axios')
 const bodyParser = require('body-parser')
+const express = require ('express');
+const axios = require('axios')
+const app = express();
 app.use(bodyParser.json())
-lembretes ={}
 contador = 0
+lembretes ={}
 
 app.get ('/lembretes', async (req, res) => {
     res.send(lembretes)
